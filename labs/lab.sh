@@ -7,12 +7,15 @@ setenforce 0
 systemctl stop firewalld
 
 # cfn-signal setup
-yum install -y https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.amzn1.noarch.rpm
+#yum install -y https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.amzn1.noarch.rpm
 export PYTHONPATH="${PYTHONPATH}:/usr/local/lib/python2.7/site-packages/"
-yum install -y python-setuptools
-mkdir aws-cfn-bootstrap-latest
-curl https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz | tar xz -C aws-cfn-bootstrap-latest --strip-components 1
-easy_install aws-cfn-bootstrap-latest
+#yum install -y python-setuptools
+#mkdir aws-cfn-bootstrap-latest
+#curl https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz | tar xz -C aws-cfn-bootstrap-latest --strip-components 1
+#easy_install aws-cfn-bootstrap-latest
+yum install -y wget python3-devel
+wget https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+pip3 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
 
 # install GPG key
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
